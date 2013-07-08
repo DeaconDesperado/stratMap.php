@@ -95,7 +95,8 @@ class stratMap implements JsonSerializable,ArrayAccess{
 	 * Set a value in the output array manually
 	 */
 	public function offsetSet($key,$val){
-		$this->output_array[$key] = $val;
+		$this->input_array[$key] = $val;
+		$this->keymap[$key] = $key;
 	}
 
 	/**

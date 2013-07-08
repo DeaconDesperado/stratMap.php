@@ -82,6 +82,16 @@ class mapTest extends PHPUnit_Framework_TestCase{
 		$this->assertEquals($output_serial,$expected);
 	}
 
+	public function testAddValue(){
+		$this->sm['arbitrary'] = 'January 18, 2000';
+		$this->assertEquals($this->sm['arbitrary'],'January 18, 2000');
+		$this->sm->mapCallback('arbitrary',function($arg){
+			$dt = new DateTime($arg);
+			return $dt->format('Y-m-d');
+		});
+		$this->assertEquals($this->sm['arbitrary'],'2000-01-18');
+	}
+
 	protected function tearDown(){
 		unset($this->sm);
 	}
