@@ -24,6 +24,8 @@ Your need to mangle this data for your client's new frontend format (or for what
 }
 ```
 
+Doing these operations inline would result in highly localized code: rather than acting on the array instance itself, you'd be calling array methods with localized names.  Additionally, the date of birth would have to be re-calculated entirely.
+
 Two objectives exist:
 
 1. Change some keynames in place, `dob`->`date_of_birth` and `favorite_food`->`likes`
@@ -42,6 +44,8 @@ $sm->mapCallback('date_of_birth',function($dob){
 
 $output_format = $sm->generate();
 ```
+
+This is obviously a trivial example, but for larger datasets with chained conversions the process is greatly simplified.
 
 Remapping is presently a 1 to 1 relationship and will replace the key inline.  Any key that is not remapped will be preserved in the output.
 
