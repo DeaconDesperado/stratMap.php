@@ -1,3 +1,4 @@
 .vagrant
 Vagrantfile
 bootstrap.sh
+phpunit.phar

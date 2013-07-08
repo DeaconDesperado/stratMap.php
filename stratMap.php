@@ -127,5 +127,4 @@ class stratMap implements JsonSerializable,ArrayAccess{
 		$this->doRemapping($input_key);
 		return $this->output_array[$key];
 	}
-
 }
